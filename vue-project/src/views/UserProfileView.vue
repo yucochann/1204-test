@@ -62,6 +62,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  isCurrentUser: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const showProfileData = ref(false);
@@ -69,21 +73,24 @@ const isEditing = ref(false);
 
 const userData = reactive({
   // 請在此實做
-  showProfileData: {
-    type: Boolean,
-    default: false,
-  },
+  name: "xxx",
+  email: "xxx@gmail.com",
 });
 
 const editForm = reactive({
   // 請在此實做
+  name: userData.name,
 });
 
 const startEdit = () => {
   // 請在此實做
+  isEditing.value = true;
+  editForm.name = userData.name;
 };
 
 const saveEdit = () => {
   // 請在此實做
+  userData.name = editForm.name;
+  isEditing.value = false;
 };
 </script>
